@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Honk:MORF,SHLN@14,59.8&family=Kalam:wght@300;400;700&family=Roboto+Slab:wght@100..900&display=swap');
+
+form {
+  padding-left: 20px;
+  padding-top: 95px;
+  font-family: "Roboto Slab", serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+  form div {
+    margin-bottom: 10px;
+  }
+
+  form label {
+    display: block;
+    font-weight: bold;
+    text-align: left; 
+  }
+
+  form input[type="email"],
+  form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  h1 {
+    color: #fff;
+    
+  }
+  form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  form h1 {
+    text-align: center;
+  }
+
+  
+  .wrapper-login {
+    background: rgb(131,128,128);
+    background: radial-gradient(circle, rgba(131,128,128,0.8911939775910365) 45%, rgba(14,13,13,1) 77%);
+    width: 85vw;
+    height: 100vh;
+    margin-right: -15vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+  #login-page {
+    height: 90vh;
+    width: 52vw;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://firebasestorage.googleapis.com/v0/b/angular-project-4050b.appspot.com/o/DALL_E_2024-04-03_14.39.04_-_Create_an_image_featuring_a_very_large_blank_space_in_the_center__bordered_by_an_extremely_slim_frame_that_embodies_an_anime_style._The_frame_should_u-removebg-preview-rem.png?alt=media&token=1969d64c-a88f-4564-9f00-89672ecaed10);
+  }

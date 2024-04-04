@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Honk:MORF,SHLN@14,59.8&family=Kalam:wght@300;400;700&family=Roboto+Slab:wght@100..900&display=swap');
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  margin-top: 30px;
+  font-family: "Roboto Slab", serif;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 34px;
+  box-shadow: 6px 6px 20px #464a4e62, -6px -6px 20px #464a4e62;
+background-color:rgba(0, 0, 0, 0.586);
+color: white;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  text-align: left; 
+}
+
+form input[type="text"],
+form input[type="number"],
+form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+form textarea {
+  height: 100px;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+form h1 {
+  text-align: center;
+}
+
+#create-wrapper {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/angular-project-4050b.appspot.com/o/create-bg.png?alt=media&token=e785b1ee-d8cc-48b6-9dab-a189a6294dff');
+  height: 100vh;
+  width: 85vw;
+  background-position: center;
+  background-size: cover;
+  margin-right: -15vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

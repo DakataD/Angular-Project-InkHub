@@ -1,0 +1,61 @@
+@font-face {
+  font-family: tattoo;
+  src: url('../../assets/NinjaNaruto-YOn4.ttf');
+}
+
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 15vw;
+  gap: 20px;
+  background-color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: tattoo;
+  position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.hi {
+  margin-bottom: 3vh;
+  color: white;
+  font-size: 16px;
+}
+
+nav > div {
+font-size: 18px;
+font-weight: 400;
+cursor: pointer;
+width: 12vw;
+color: rgb(255, 255, 255);
+transition: 0.5s;
+clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+background-color: rgb(255, 0, 47);
+text-shadow: 1px 1px black;
+}
+
+nav > div:hover{
+  scale: 1.2;
+  letter-spacing: 0.10em;
+  text-decoration: underline;
+}
+
+nav > div::before{
+  content: '';
+  inset: 2px;
+ 
+}
+
+nav > article {
+  font-size: 28px;
+}
+
+nav > article img {
+  width: 11vw;
+  height: 27vh;
+  margin-bottom: 80px;
+}

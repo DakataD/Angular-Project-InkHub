@@ -1,0 +1,40 @@
+#home {
+    height: 100vh;
+    width: 85vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/angular-project-4050b.appspot.com/o/DALL%C2%B7E%202024-04-02%2020.07.11%20-%20Create%20a%20vibrant%20and%20detailed%20digital%20illustration%20for%20the%20welcome%20page%20of%20a%20tattoo-inspired%20website%2C%20now%20reimagined%20in%20an%20anime%20style.%20The%20illustrati.png?alt=media&token=bbd8634a-bd40-47ae-a9a8-27edfcf146e9');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: 15vw;
+}
+
+#black {
+    background: #00000087;
+    background-image: radial-gradient(#979595 4%, transparent 0);
+    background-size: 35px 35px;
+    height: 100vh;
+    width: 85vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 900;
+}
+
+#black p {
+    width: 60vw;
+    font-size: 20px;
+    text-shadow: 1px 1px black;
+}
+
+#black h1 {
+    font-weight: 900;
+    text-shadow: 2px 2px black;
+
+}
