@@ -6,19 +6,18 @@ import { RegisterComponent } from './register/register.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { CreateComponent } from './create/create.component';
 import { DetailsComponent } from './details/details.component';
-import { AuthGuard } from './auth.guard';
-import { PrivateAuthGuard } from './public-auth.guard';
 import { EditComponent } from './edit/edit.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './shared/guard.service'
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'catalog', component: CatalogComponent },
-  { path: 'create', component: CreateComponent }, 
+  { path: 'catalog', component: CatalogComponent, data: {animation : 'scale'}},
+  { path: 'create', component: CreateComponent, canActivate: [AuthGuard] }, 
   { path: 'register', component: RegisterComponent }, 
   { path: 'login', component: LoginComponent}, 
   { path: 'details/:id', component: DetailsComponent },
-  { path: 'edit/:id', component: EditComponent}, 
+  { path: 'edit/:id', component: EditComponent , canActivate: [AuthGuard]}, 
   { path: '**', component: NotFoundComponent}
 ];
 

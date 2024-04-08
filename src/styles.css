@@ -1,0 +1,7 @@
+#wrapper {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    background-color: black;
+}

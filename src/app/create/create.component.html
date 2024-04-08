@@ -1,17 +1,17 @@
 <div id="create-wrapper">
 <form (ngSubmit)="addItem()">
   <h1>Create</h1>
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" [(ngModel)]="newItem.name">
+  <label for="name">Title:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="newItem.title">
 
-  <label for="weight">Weight:</label>
-  <input type="text" id="weight" name="weight" [(ngModel)]="newItem.weight">
+  <label for="style">Style:</label>
+  <input type="text" id="style" name="style" [(ngModel)]="newItem.style">
 
-  <label for="price">Price:</label>
-  <input type="text" id="price" name="price" [(ngModel)]="newItem.price">
+  <label for="studio">Studio:</label>
+  <input type="text" id="studio" name="studio" [(ngModel)]="newItem.studio">
 
-  <label for="description">Description:</label>
-  <textarea id="description" name="description" [(ngModel)]="newItem.description"></textarea>
+  <label for="story">Story:</label>
+  <textarea id="story" name="story" [(ngModel)]="newItem.story"></textarea>
 
   <label for="photo">Photo:</label>
   <input type="file" id="photo" name="photo" (change)="onFileSelected($event)">

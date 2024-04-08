@@ -1,26 +1,32 @@
-<div *ngIf="item">
-  <div class="item-card">
-    <img [src]="item.photo" alt="{{ item.name }} Photo">
-    <div class="item-details">
-      <h2>{{ item.name }}</h2>
-      <p>Weight: {{ item.weight }}</p>
-      <p>Price: {{ item.price }}</p>
-      <p>Description: {{ item.description }}</p>
-      
-      <!-- Message displayed if item is bought -->
-      <div *ngIf="itemBought && !isAdminUser()" class="btn btn-danger">
-        You bought this item!
+<div class="details-wrapper" >
+  <div *ngIf="item">
+    <div class="item-card">
+      <div class="img-btn">
+        <img [src]="item.photo" alt="{{ item.title }} Photo" >
+        <button class="btn btn-danger" (click)="showFullScreenImage()">Full Screen View</button>
       </div>
       
-      <!-- Button to buy item if not bought and user is not admin -->
-      <div *ngIf="!itemBought && !isAdminUser()">
-        <button (click)="buyItem()">Buy Item</button>
-      </div>
-      
-      <!-- Buttons for admin user -->
-      <div *ngIf="isAdminUser()">
-        <button (click)="editItem()" class="btn btn-danger">Edit</button>
-        <button (click)="deleteItem()" class="btn btn-danger">Delete</button>
+      <div class="item-details">
+        <h2>{{ item.title }}</h2>
+        <p>Style: {{ item.style }}</p>
+        <p>studio: {{ item.studio }}</p>
+        <p id="story">Story: {{ item.story }}</p>
+        
+   
+        <div *ngIf="itemBought && !isAuthor() && this.currentUser" class="btn btn-danger" >
+        You liked this tattoo!
+        </div>
+        
+
+        <div *ngIf="!itemBought && !isAuthor() && this.currentUser">
+          <button (click)="buyItem()" class="btn btn-danger">Like Tattoo</button>
+        </div>
+        
+    
+        <div *ngIf="isOwner" class="btn-wrapper">
+          <button (click)="editItem()" class="btn btn-danger">Edit</button>
+          <button (click)="deleteItem()" class="btn btn-danger">Delete</button>
+        </div>
       </div>
     </div>
   </div>

@@ -2,7 +2,6 @@
 
     form {
       padding-left: 20px;
-      padding-top: 60px;
       font-family: "Roboto Slab", serif;
       display: flex;
       flex-direction: column;
@@ -37,7 +36,7 @@
     form button {
       margin-top: 20px;
       padding: 10px 20px;
-      background-color: #ff0000;
+      background-color:  #e61445;
       color: #fff;
       border: none;
       border-radius: 4px;
@@ -53,6 +52,9 @@
       text-align: center;
     }
     #register-page {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       height: 90vh;
       width: 52vw;
       background-position: center;

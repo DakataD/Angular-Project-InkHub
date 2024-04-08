@@ -16,11 +16,12 @@ export class DataService {
   saveMetaDataOfFile(fileObj: Item): Promise<void> {
     const fileMeta = {
       id: fileObj.id,
-      name: fileObj.name,
-      weight: fileObj.weight,
-      price: fileObj.price,
-      description: fileObj.description,
-      photo: fileObj.photo
+      name: fileObj.title,
+      style: fileObj.style,
+      studio: fileObj.studio,
+      story: fileObj.story,
+      photo: fileObj.photo,
+      author: fileObj.author 
     };
 
     // Return a Promise here

@@ -2,7 +2,7 @@
 
 form {
   padding-left: 20px;
-  padding-top: 95px;
+
   font-family: "Roboto Slab", serif;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ form {
   form button {
     margin-top: 20px;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #e61445;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -64,6 +64,9 @@ form {
 
 
   #login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 90vh;
     width: 52vw;
     background-position: center;

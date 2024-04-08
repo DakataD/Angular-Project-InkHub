@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  item: Item = { id: '', name: '', weight: '', price: '', description: '', photo: '' };
+  item: Item = { id: '', title: '', style: '', studio: '', story: '', photo: '', author: '' };
   errorMessage: string = '';
 
   constructor(
@@ -38,7 +38,7 @@ export class EditComponent implements OnInit {
       this.dataService.updateItem(this.item)
         .then(() => {
           console.log('Item updated successfully');
-          this.router.navigate(['/details', this.item?.id]);
+          this.router.navigate(['/catalog']);
         })
         .catch(error => {
           console.error('Error updating item:', error);

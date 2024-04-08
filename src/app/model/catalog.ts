@@ -3,5 +3,6 @@ export interface Catalog {
     name: string,
     weight: string,
     price: string,
-    photoUrl: string
+    photoUrl: string,
+    author: string
 }

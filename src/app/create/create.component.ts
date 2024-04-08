@@ -4,7 +4,7 @@ import { DataService } from '../shared/data.service';
 import { AuthService } from '../shared/auth.service';
 import { AngularFireStorage } from '@angular/fire/compat/storage'; 
 import { finalize } from 'rxjs/operators';
-import { Router } from '@angular/router'; // Import Router service
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-create',
@@ -15,12 +15,12 @@ export class CreateComponent implements OnInit {
 
   newItem: Item = {
     id: '',
-    name: '',
-    weight: '',
-    price: '',
-    description: '',
+    title: '',
+    style: '',
+    studio: '',
+    story: '',
     photo: '',
-    
+    author: ''
   };
 
   selectedFile: File | null = null;
@@ -28,23 +28,25 @@ export class CreateComponent implements OnInit {
 
   constructor(private dataService: DataService, 
               private storage: AngularFireStorage,
+              private authService: AuthService, // Inject AuthService
               private router: Router,
              ) { } // Inject Router service
 
-              ngOnInit(): void {
+  ngOnInit(): void {
                
-              }
+  }
+
   onFileSelected(event: any) {
     this.selectedFile = event.target.files[0];
   }
 
-  addItem() {
-    if (!this.newItem.name || !this.newItem.weight || !this.newItem.price || !this.newItem.description || !this.selectedFile) {
+  async addItem() {
+    if (!this.newItem.title || !this.newItem.style || !this.newItem.studio || !this.newItem.story || !this.selectedFile) {
       alert('Please fill in all fields and select a file');
       return;
     }
 
-    this.isUploading = true; // Set uploading flag to true
+    this.isUploading = true; 
 
     const filePath = `uploads/${this.selectedFile.name}`;
     const fileRef = this.storage.ref(filePath);
@@ -52,9 +54,17 @@ export class CreateComponent implements OnInit {
 
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
-        fileRef.getDownloadURL().subscribe((downloadURL: string) => {
-          this.newItem.photo = downloadURL; // Set the photo URL in the newItem object
-          this.saveItem(); // Proceed to save the item
+        fileRef.getDownloadURL().subscribe(async (downloadURL: string) => {
+          this.newItem.photo = downloadURL; 
+          // Get current user's email from AuthService
+          const currentUser = await this.authService.getCurrentUser();
+          if (currentUser) {
+            this.newItem.author = currentUser;
+            this.saveItem(); 
+          } else {
+            console.error("Current user not found");
+            this.isUploading = false;
+          }
         });
       })
     ).subscribe();
@@ -76,12 +86,12 @@ export class CreateComponent implements OnInit {
   clearForm() {
     this.newItem = {
       id: '',
-      name: '',
-      weight: '',
-      price: '',
-      description: '',
+      title: '',
+      style: '',
+      studio: '',
+      story: '',
       photo: '',
-
+      author: ''
     };
     this.selectedFile = null;
   }

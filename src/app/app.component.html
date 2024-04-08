@@ -1,6 +1,6 @@
-<div id="wrapper">
+<div id="wrapper" [@routeAnimations] = "prepareRoute(outlet)">
 <app-navigation />
-<router-outlet />
+<router-outlet #outlet = "outlet"/>
 </div>
 
 

@@ -1,10 +1,10 @@
 
 export interface Item {
     id: string,
-    name: string,
-    weight: string,
-    price: string,
-    description: string,
+    title: string,
+    style: string,
+    studio: string,
+    story: string,
     photo: string,
-    
+    author: string
 }
