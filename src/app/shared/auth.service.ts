@@ -12,7 +12,7 @@ export class AuthService {
 
   login(email: string, password: string) {
     this.fireauth.signInWithEmailAndPassword(email, password).then(() => {
-      localStorage.setItem('token', 'true');
+      localStorage.setItem('user', 'true');
       this.router.navigate(['/']);
     }, err => {
       alert(err.message);
@@ -23,14 +23,21 @@ export class AuthService {
 
 
   register(email: string, password: string) {
-    this.fireauth.createUserWithEmailAndPassword(email, password).then(() => {
-      alert('Regiestration Successful');
-      this.router.navigate(['/']);
-    }, err => {
-      alert(err.message);
-      this.router.navigate(['/register']);
-    })
+    this.fireauth.createUserWithEmailAndPassword(email, password)
+      .then((credential) => {
+        // After successfully creating the user, set user state
+        localStorage.setItem('user', 'true');
+        localStorage.setItem('currentUser', email);
+        // Navigate or do any other necessary actions here
+        this.router.navigate(['/']);
+      })
+      .catch(err => {
+        alert(err.message);
+        this.router.navigate(['/register']);
+      });
   }
+  
+  
   getCurrentUser(): string | null {
     return localStorage.getItem('currentUser');
   }

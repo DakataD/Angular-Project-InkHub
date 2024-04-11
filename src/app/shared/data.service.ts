@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Item } from '../model/item';
 import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { interval } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -24,14 +22,13 @@ export class DataService {
       author: fileObj.author 
     };
 
-    // Return a Promise here
     return new Promise<void>((resolve, reject) => {
       this.afs.collection('/Upload').add(fileMeta)
         .then(() => {
-          resolve(); // Resolve the Promise when the operation is completed
+          resolve(); 
         })
         .catch((error) => {
-          reject(error); // Reject the Promise if an error occurs
+          reject(error); 
         });
     });
   }

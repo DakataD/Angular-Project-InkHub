@@ -1,0 +1,33 @@
+<div class="details-wrapper" >
+  <div *ngIf="item">
+    <div class="item-card">
+      <div class="img-btn">
+        <img [src]="item.photo" alt="{{ item.title }} Photo" >
+        <button class="btn btn-danger" (click)="showFullScreenImage()">Full Screen View</button>
+      </div>
+      
+      <div class="item-details">
+        <h2>{{ item.title }}</h2>
+        <p>Style: {{ item.style }}</p>
+        <p>Studio: {{ item.studio }}</p>
+        <p id="story">Story: <br> {{ item.story }}</p>
+        
+   
+        <div *ngIf="itemBought && !isAuthor() && this.currentUser" class="btn btn-danger" >
+        You liked this tattoo!
+        </div>
+        
+
+        <div *ngIf="!itemBought && !isAuthor() && this.currentUser">
+          <button (click)="buyItem()" class="btn btn-danger">Like Tattoo</button>
+        </div>
+        
+    
+        <div *ngIf="isOwner" class="btn-wrapper">
+          <button (click)="editItem()" class="btn btn-danger">Edit</button>
+          <button (click)="deleteItem()" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

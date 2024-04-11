@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AngularFirestore, AngularFirestoreCollection, DocumentChangeAction } from '@angular/fire/compat/firestore';
-import { Catalog } from '../model/catalog';
+import { Item } from '../model/item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CatalogService {
-  private readonly catalogsCollection: AngularFirestoreCollection<Catalog>;
+  private readonly catalogsCollection: AngularFirestoreCollection<Item>;
 
   constructor(private firestore: AngularFirestore) {
-    this.catalogsCollection = firestore.collection<Catalog>('catalogs');
+    this.catalogsCollection = firestore.collection<Item>('catalogs');
   }
 
-  getAllCatalogs(): Observable<Catalog[]> {
+  getAllCatalogs(): Observable<Item[]> {
     return this.catalogsCollection.valueChanges({ idField: 'id' });
   }
 
@@ -21,12 +21,12 @@ export class CatalogService {
     return this.firestore.collection('catalogs').doc(id).valueChanges({ idField: 'id' });
   }
 
-  addCatalog(catalog: Catalog): Promise<void> {
+  addCatalog(catalog: Item): Promise<void> {
     const id = this.firestore.createId();
     return this.catalogsCollection.doc(id).set({ ...catalog, id });
   }
 
-  updateCatalog(id: string, catalog: Catalog): Promise<void> {
+  updateCatalog(id: string, catalog: Item): Promise<void> {
     return this.catalogsCollection.doc(id).update(catalog);
   }
 

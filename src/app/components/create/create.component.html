@@ -1,0 +1,22 @@
+<div id="create-wrapper">
+<form (ngSubmit)="addItem()">
+  <h1>Create</h1>
+  <label for="name">Title:</label>
+  <input type="text" id="name" name="name" [(ngModel)]="newItem.title">
+
+  <label for="style">Style:</label>
+  <input type="text" id="style" name="style" [(ngModel)]="newItem.style">
+
+  <label for="studio">Studio:</label>
+  <input type="text" id="studio" name="studio" [(ngModel)]="newItem.studio">
+
+  <label for="story">Story:</label>
+  <textarea id="story" name="story" [(ngModel)]="newItem.story"></textarea>
+
+  <label for="photo">Photo:</label>
+  <input type="file" id="photo" name="photo" (change)="onFileSelected($event)">
+
+  <button type="submit">Create Item</button>
+</form>
+</div>
+  

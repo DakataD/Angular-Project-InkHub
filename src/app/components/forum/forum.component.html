@@ -1,0 +1,15 @@
+<div class="forum-wrapper">
+<h2>Forum</h2>
+<form id="forum-form" (ngSubmit)="submitComment()">
+  <textarea [(ngModel)]="newComment" name="comment" placeholder="Write your comment here"></textarea>
+  <button type="submit">Submit</button>
+</form>
+<div *ngFor="let comment of comments">
+    <div class="msg">
+        <p>Message from: {{ comment.author }} &#9754; (for contacts)</p>
+        <p class="forum-msg">{{ comment.text }}</p>
+    </div>
+ 
+
+</div>
+</div>

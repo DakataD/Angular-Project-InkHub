@@ -1,0 +1,16 @@
+<section id="catalog" class="anime">
+<div class="container">
+  <div  class="card__container">
+    <article class="card__article" *ngFor="let item of items$ | async">
+      
+      <img [src]="item.photo" alt="{{ item.title }}" class="card__img">
+      <div class="card__data">
+        <span class="card__description">{{ item.title }}</span>
+        <p class="card__title">{{ item.style }}</p>
+        <p class="card__title">{{ item.studio }}</p>
+        <button [routerLink]="['/details', item.id]" class="btn btn-danger">Details</button>
+      </div>
+    </article>
+  </div>
+</div>
+</section>
